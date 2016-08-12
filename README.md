@@ -1,5 +1,7 @@
 # joi-sequelize
 
+_This is a fork of [joi-sequelize](https://github.com/mibrito/joi-sequelize) that adds support for Sequelize Virtual datatypes._
+
 A lib to automaticaly create joi validation schemas from sequelize models.
 
 [![Build Status](https://travis-ci.org/mibrito/joi-sequelize.svg?branch=master)](https://travis-ci.org/mibrito/joi-sequelize)
@@ -28,7 +30,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     firstname: {
       type: DataTypes.STRING(64), /* will generate .string().max(64) */
-      allowNull: false, 
+      allowNull: false,
       description: 'User`s first name'
     },
     lastname: {
@@ -108,7 +110,7 @@ function init() {
       db[model.name] = model;
       db.JS[model.name] = new JoiSequelize(require(path.join(__dirname, file)));
     });
-    
+
   Object.keys(db).forEach(function (modelName) {
         if (db[modelName].associate) {
           db[modelName].associate(db);
@@ -124,7 +126,7 @@ function init() {
       db[modelName].addHooks(db);
     }
   });
-  
+
   return db;
 }
 
