@@ -13,10 +13,10 @@ describe('JSON', () => {
     it('Should create joi schema', () => {
       JS.joi().should.have.deep.property('simple');
       JS.joi().simple.isJoi.should.be.ok;
-      JS.joi().simple._type.should.be.equal('any');
+      JS.joi().simple._type.should.be.equal('alternatives');
     });
     it('Should validate as JSON', () => {
-      JS.joi().simple.validate(true, (err)=> {
+      JS.joi().simple.validate([], (err)=> {
         expect(err).to.be.null;
       });
     });
