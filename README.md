@@ -60,7 +60,7 @@ module.exports = function(sequelize, DataTypes) {
     address: {
       type: DataTypes.JSONB, /* will allow .object() or .array() */
       // custom property available on any `type` to provide your own joi setup
-      joi: joi.object({
+      joi: () => joi.object({
         street: joi.string(),
         city: joi.string(),
         state: joi.string(),
